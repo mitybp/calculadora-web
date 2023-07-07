@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="result">
+            <h1 id="result"></h1>
+        </div>
+        <div class="buttons">
+            <div class="row">
+                <button onclick="ac()">AC</button>
+                <button onclick="location.reload()"><i class="ph ph-arrow-clockwise"></i></button>
+                <button onclick="backspace()"><i class="ph ph-backspace"></i></button>
+                <button onclick="insert('/')"><i class="ph ph-divide"></i></button>
+            </div>
+            <div class="row">
+                <button onclick="insert('1')">1</button>
+                <button onclick="insert('2')">2</button>
+                <button onclick="insert('3')">3</button>
+                <button onclick="insert('*')"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="row">
+                <button onclick="insert('4')">4</button>
+                <button onclick="insert('5')">5</button>
+                <button onclick="insert('6')">6</button>
+                <button onclick="insert('+')"><i class="ph ph-plus"></i></button>
+            </div>
+            <div class="row">
+                <button onclick="insert('7')">7</button>
+                <button onclick="insert('8')">8</button>
+                <button onclick="insert('9')">9</button>
+                <button onclick="insert('-')"><i class="ph ph-minus"></i></button>
+            </div>
+            <div class="row">
+                <button onclick="insert('.')">.</button>
+                <button onclick="insert('0')">0</button>
+                <button onclick="insert('00')">00</button>
+                <button onclick="equal()" class="bg"><i class="ph ph-equals"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let result=document.getElementById("result");
+
+        function ac(){
+            result.innerHTML="";
+        }
+        function backspace(){
+            result.innerHTML=result.innerHTML.substring(0, result.innerHTML.length);
+        }
+        function insert(e){
+            if(result.innerHTML=="Error"){
+                result.innerHTML="";
+                result.innerHTML+=e
+            }else{
+                result.innerHTML+=e
+            }
+        }
+        function equal(){
+            if(result.innerHTML){
+                result.innerHTML=eval(result.innerHTML)
+            }else{
+                result.innerHTML="Error";
+            }
+        }
+    </script>
+</body>
+</html>
