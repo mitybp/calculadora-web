@@ -75,14 +75,15 @@ body{
     color: white;
 }
 
-
 @media (max-width:900px) {
     .container{
         width: 80%;
+        height: 80%;
     }
 }
 @media (min-width: 1200px) {
     .container{
         width: 30%;
+        height: 50%;
     }
 }
